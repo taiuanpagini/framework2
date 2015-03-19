@@ -1,0 +1,23 @@
+<aside>
+    <div id="sidebar" class="nav-collapse">
+        <!-- sidebar menu start-->
+        <div class="leftside-navigation">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <%= link_to raw('<i class="fa fa-dashboard"></i> <span>Painel Inicial</span>'), admin_root_path,class: "active" %>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-user"></i>
+                        <span>Usuarios</span>
+                    </a>
+                    <ul class="sub">
+                        <li><%= link_to "Listar Usuarios", admin_users_path %></li>
+                        <li><%= link_to "Criar Usuario", new_admin_user_path %></li>
+                    </ul>
+                </li>                
+            </ul>
+          </div>
+        <!-- sidebar menu end-->
+    </div>
+</aside>

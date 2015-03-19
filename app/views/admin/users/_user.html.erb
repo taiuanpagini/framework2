@@ -1,0 +1,11 @@
+<tr>
+	<td class="text-center"><%= image_tag user.avatar.url(:thumb), class: "img-circle", width: "40", height: "40" %></td>
+	<td><%= user.name %></td>
+	<td><%= user.email %></td>
+	<td class="text-center">
+		<div class="btn-group btn-group-xs">
+      <%= link_to raw('<i class="fa fa-pencil"></i>'), edit_admin_user_path(user), class: "btn btn-default", title: "Editar" %>      
+      <%= link_to(raw('<i class="fa fa-times"></i>'), admin_user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-danger') unless user == current_user %>
+		</div>
+	</td>
+</tr>

@@ -1,0 +1,102 @@
+<header class="header fixed-top clearfix">
+<!--logo start-->
+<div class="brand">
+
+    <%= link_to "Logo Empresa", admin_root_path, class: "logo" %>
+    <div class="sidebar-toggle-box">
+        <div class="fa fa-bars"></div>
+    </div>
+</div>
+<!--logo end-->
+
+<div class="nav notify-row" id="top_menu">
+    <!--  notification start -->
+    <ul class="nav top-menu">
+        <!-- settings start -->
+        <!-- settings end -->
+        <!-- inbox dropdown start-->
+        <li id="header_inbox_bar" class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <i class="fa fa-envelope-o"></i>
+                <span class="badge bg-important">4</span>
+            </a>
+            <ul class="dropdown-menu extended inbox">
+                <li>
+                    <p class="red">You have 4 Mails</p>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="photo"><img alt="avatar" src="images/avatar-mini.jpg"></span>
+                                <span class="subject">
+                                <span class="from">Jonathan Smith</span>
+                                <span class="time">Just now</span>
+                                </span>
+                                <span class="message">
+                                    Hello, this is an example msg.
+                                </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="photo"><img alt="avatar" src="images/avatar-mini-2.jpg"></span>
+                                <span class="subject">
+                                <span class="from">Jane Doe</span>
+                                <span class="time">2 min ago</span>
+                                </span>
+                                <span class="message">
+                                    Nice admin template
+                                </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="photo"><img alt="avatar" src="images/avatar-mini-3.jpg"></span>
+                                <span class="subject">
+                                <span class="from">Tasi sam</span>
+                                <span class="time">2 days ago</span>
+                                </span>
+                                <span class="message">
+                                    This is an example msg.
+                                </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="photo"><img alt="avatar" src="images/avatar-mini.jpg"></span>
+                                <span class="subject">
+                                <span class="from">Mr. Perfect</span>
+                                <span class="time">2 hour ago</span>
+                                </span>
+                                <span class="message">
+                                    Hi there, its a test
+                                </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">See all messages</a>
+                </li>
+            </ul>
+        </li>
+        <!-- inbox dropdown end -->        
+    </ul>
+    <!--  notification end -->
+</div>
+<div class="top-nav clearfix">
+    <!--search & user info start-->
+    <ul class="nav pull-right top-menu">
+        <!-- user login dropdown start-->
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <%= image_tag current_user.avatar.url(:thumb) %>
+                <span class="username"><%= current_user.name %></span>
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu extended logout">
+                <li><%= link_to raw('<i class="fa fa-suitcase"></i> Meu Perfil'), edit_admin_user_path(current_user) %></li>
+                <li><%= link_to raw('<i class="fa fa-key"></i> Sair'), destroy_user_session_path, method: :delete %></li>
+            </ul>
+        </li>
+    </ul>
+    <!--search & user info end-->
+</div>
+</header>

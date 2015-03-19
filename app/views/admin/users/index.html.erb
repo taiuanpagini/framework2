@@ -1,0 +1,38 @@
+	<div class="invoice-header">
+      <div class="invoice-title col-md-5 col-xs-2">
+          <h1>Lista de Usuarios</h1>
+          <i class="fa fa-user"></i>
+      </div>
+  </div>
+
+	<%= render 'alerts/messages', object: @user %>
+	
+	<div class="row">
+    <div class="col-sm-12">
+      <section class="panel">
+        <header class="panel-heading">
+          Listagem de Usuarios
+          <span class="tools pull-right">
+          	<%= link_to "",new_admin_user_path, class: "fa fa-plus" %>
+          </span>
+        </header>
+        <div class="panel-body">
+	        <div class="adv-table">
+		        <table  class="display table table-bordered table-striped" id="dynamic-table">
+			        <thead>
+				        <tr>
+									<th style="width: 150px;" class="text-center">Imagem</th>
+									<th>Nome do Usuario</th>
+									<th>Email</th>
+									<th style="width: 150px;" class="text-center">Ações</th>
+								</tr>
+							</thead>
+							<tbody>
+								<%= render @users %>
+							</tbody>
+						</table>	
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>

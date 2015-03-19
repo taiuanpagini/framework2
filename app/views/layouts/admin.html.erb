@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "Área Administrativa - FrameWork Padrão" %></title>
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Teste" %>">
+  <%= stylesheet_link_tag 'admin/application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'admin/application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <section id="container">
+
+    <%= render '/layouts/headerAdmin' %>
+    
+    <%= render '/layouts/sidebar' %>
+
+    <section id="main-content">
+      <section class="wrapper">
+        <%= yield %>
+      </section>
+    </section>
+
+  </section>
+  
+  <script>
+    $('#dynamic-table').dataTable( {
+      "aaSorting": [[ 4, "desc" ]]
+    });
+    if ($.fn.dcAccordion) {
+        $('#nav-accordion').dcAccordion({
+            eventType: 'click',
+            autoClose: true,
+            saveState: true,
+            disableLink: true,
+            speed: 'slow',
+            showCount: false,
+            autoExpand: true,
+            classExpand: 'dcjq-current-parent'
+        });
+    }
+    $('.sidebar-toggle-box .fa-bars').click(function () {
+
+        $(".leftside-navigation").niceScroll({
+            cursorcolor: "#1FB5AD",
+            cursorborder: "0px solid #fff",
+            cursorborderradius: "0px",
+            cursorwidth: "3px"
+        });
+
+        $('#sidebar').toggleClass('hide-left-bar');
+        if ($('#sidebar').hasClass('hide-left-bar')) {
+            $(".leftside-navigation").getNiceScroll().hide();
+        }
+        $(".leftside-navigation").getNiceScroll().show();
+        $('#main-content').toggleClass('merge-left');
+        e.stopPropagation();
+        if ($('#container').hasClass('open-right-panel')) {
+            $('#container').removeClass('open-right-panel')
+        }
+        if ($('.right-sidebar').hasClass('open-right-bar')) {
+            $('.right-sidebar').removeClass('open-right-bar')
+        }
+
+        if ($('.header').hasClass('merge-header')) {
+            $('.header').removeClass('merge-header')
+        }
+
+    });
+  </script>
+  <%= javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js" %>
+  <%= javascript_include_tag "http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" %>
+
+</body>
+</html>

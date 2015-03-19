@@ -1,0 +1,18 @@
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form', :class => 'form-signin'}) do |f| %>
+  <h2 class="form-signin-heading">Acessar o Sistema</h2>
+  <div class="login-wrap">
+    <div class="user-login-info">
+      <%= f.email_field :email, :autofocus => true, id: 'login-email', class: 'form-control', placeholder: 'email' %>
+      <%= f.password_field :password, id: 'login-password', class: 'form-control', placeholder: 'password' %>
+      <%= render 'alerts/new', object: @user %>
+    </div>
+    <%= f.submit 'Login', :class => 'btn btn-lg btn-login btn-block' %>
+
+    <div class="registration">
+      Nao tem cadastro?
+      <a class="" href="registration.html">
+          Clique aqui
+      </a>
+    </div>
+  </div>
+<% end %>

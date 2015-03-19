@@ -1,0 +1,18 @@
+<% unless flash.nil? %>
+  <% flash.each do |type, message| %>
+    <% if type == "notice" %>
+      <p class="<%= type %> alert alert-block alert-success fade in">
+				<button data-dismiss="alert" class="close close-sm" type="button"><i class="fa fa-times"></i></button>
+      	<%= message %>
+      </p>
+      <div class="clear"></div>
+    <% else %>
+      <p class="<%= type %> alert alert-block alert-danger fade in">
+      	<button data-dismiss="alert" class="close close-sm" type="button"><i class="fa fa-times"></i></button>
+      	<%= message %>
+      </p>
+      <div class="clear"></div>
+    <% end %>
+  <% end %>
+<% end %>
+

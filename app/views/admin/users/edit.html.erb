@@ -1,0 +1,17 @@
+<div class="invoice-header">
+    <div class="invoice-title col-md-5 col-xs-2">
+        <h1>Editar Usuario - <%= current_user.name %></h1>
+        <i class="fa fa-user"></i>
+    </div>
+</div>
+  
+<%= render 'validate' %>
+
+<section class="panel">
+	<header class="panel-heading">Formulario de Cadastro</header>
+	<div class="panel-body">
+		<div class="position-center">
+			<%= render 'form' %>			
+		</div>
+	</div>
+</section>
